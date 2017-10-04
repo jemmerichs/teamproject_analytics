@@ -256,7 +256,7 @@
             <button class="btn btn-danger " data-toggle="modal" data-target="#myModal_cancel">{{ 'cancel2' | translate}}</button>
           </div>
           <div class="col-xs-6 text-right ">
-            <button [hidden]="false" data-toggle="modal" data-target="#myModal" class="btn btn-info " *ngIf="createMode " (click)="addEvent()" [disabled]="!cweekForm.form.valid">Generate Bundles</button>
+            <button [hidden]="false" data-toggle="modal" data-target="#myModal" class="btn btn-info " *ngIf="createMode " (click)="addEvent()" [disabled]="!cweekForm.form.valid">{{ 'generateBundles' | translate}}</button>
             <button [routerLink]="[ '/eventbundle'] " class="btn btn-info " *ngIf="!createMode " (click)="updateEvent(event) ">{{ 'updateCont' | translate}}</button>
           </div>
 

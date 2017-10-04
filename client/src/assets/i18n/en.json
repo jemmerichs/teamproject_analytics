@@ -19,7 +19,7 @@
     "success3": "Success! You're now a smart customer with LIDL Smart Shopping :)",
 
     "lidlssv":"LIDL Smart Shopping Verification",
-    "channel?":"How did you choose to use the LIDL Smart Shopping Service?",
+    "channel?":"How did you choose to use LIDL Smart Shopping?",
     "phone1":"SMS/WhatsApp",
     "email2": "E-Mail",
     "typenum1":"Type your registered phone number and press Enter: ",
@@ -155,6 +155,7 @@
     "EAN2":"EAN",
     "price2":"Price",
     "cancel2":"Cancel",
+    "generateBundles":"Generate Bundles",
     "updateCont":"Update the Event and Continue",
     "cancel3":"Cancel",
     "done":"Done",
