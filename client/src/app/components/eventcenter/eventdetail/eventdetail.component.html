@@ -127,7 +127,7 @@
 
           <div class="modal-header">
             <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
-            <h4 class="modal-title">Cancel</h4>
+            <h4 class="modal-title">{{ 'Cancel3' | translate}}</h4>
           </div>
           <div class="modal-body">
             <h4>{{ 'confirmCancel' | translate}}</h4>
@@ -209,7 +209,7 @@
           <div class="form-group row ">
             <label for="title " class="col-xs-4 col-form-label text-right">{{ 'prodSearch' | translate}}</label>
             <div class="col-xs-8 ">
-              <input placeholder="Filter by Articlename" [disabled]="!createMode" [(ngModel)]="articleFilter.name"
+              <input placeholder="Filter by product name" [disabled]="!createMode" [(ngModel)]="articleFilter.name"
                      name="articleFilter.name" type="text"
                      class="form-control input-xs">
             </div>

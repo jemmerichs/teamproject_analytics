@@ -41,7 +41,7 @@
           </div>
           <p>{{ 'typecode1' | translate}}</p>
           <form (submit)="checkVerification()">
-            <input type="text" class="form-control" placeholder="Type the verification code here." required [(ngModel)]="verCode" name="verCode" [disabled]="displayVer">
+            <input type="text" class="form-control" placeholder="Type the verification code here" required [(ngModel)]="verCode" name="verCode" [disabled]="displayVer">
           </form>
           <br>
           <div class="alert alert-danger alert-dismissable" *ngIf="displayAlert2">
@@ -54,7 +54,7 @@
           <br>
           <p>{{ 'typeemail2' | translate}}</p>
           <form (submit)="checkUserByMail()">
-            <input type="email" class="form-control" placeholder="Type your E-Mail here (john.doe@lidlmail.com)." required pattern='^(([^<>()\[\]\\.,;:\s@\\"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+            <input type="email" class="form-control" placeholder="Type your E-Mail here (john.doe@lidlmail.com)" required pattern='^(([^<>()\[\]\\.,;:\s@\\"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
               [(ngModel)]="email_address" name="email_address" #mail="ngModel">
           </form>
           <br>
@@ -73,7 +73,7 @@
           </div>
           <p>{{ 'typecode2' | translate}}</p>
           <form (submit)="checkVerification()">
-            <input type="text" class="form-control" placeholder="Type the verification code here." required [(ngModel)]="verCode" name="verCode" [disabled]="displayVer">
+            <input type="text" class="form-control" placeholder="Type the verification code here" required [(ngModel)]="verCode" name="verCode" [disabled]="displayVer">
           </form>
           <br>
           <div class="alert alert-danger alert-dismissable" *ngIf="displayAlert2">

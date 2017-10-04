@@ -1,11 +1,12 @@
 {
     "HELLO": "hello",
-    "subscribe1": "Subscribe Now And Get 5% Off!",
+    "subscribe1": "Subscribe and Start Saving Now!",
     "subscribe2": "Register your phone number or E-Mail to get awesome shopping suggestions from the LIDL Smart Shopping Service",
     "language": "English",
     "sms1": "SMS",
     "email1": "E-Mail",
     "whatsapp1": "WhatsApp",
+    "alexa":"Amazon Alexa",
     "invalidnum1": "Oops..It must be a valid phone number. Try this format +4911221234567.",
     "subscribebutton1": "Subscribe",
     "success1": "Success! You're now a smart customer with LIDL Smart Shopping :)",
@@ -13,7 +14,7 @@
     "subscribebutton2": "Subscribe",
     "success2": "Success! You're now a smart customer with LIDL Smart Shopping :)",
     "typeemail1":"Type in your E-Mail address.",
-    "invalidemail1": "Oops...It must be a valid E-Mail. For example, aaabbb@gmail.com.",
+    "invalidemail1": "Oops...It must be a valid E-Mail. For example, aaabbb@lidlmail.com.",
     "subscribebutton3": "Subscribe",
     "success3": "Success! You're now a smart customer with LIDL Smart Shopping :)",
 
@@ -24,7 +25,7 @@
     "typenum1":"Type your registered phone number and press Enter: ",
     "error1":"ERROR! Please use a registered phone number.",
     "typenum2":"Type your phone number.",
-  "typealexa":"Type your Alexa ID.",
+    "typealexa":"Type your Alexa ID.",
     "error2":" Oops..It must be a valid phone number. Try this format +4911221234567.",
     "typecode1":"Type the verification code you just received and press Enter:",
     "error3":"ERROR! Please use the correct verification code.",
@@ -113,7 +114,7 @@
     "expire1":"Expires: September 30th, 2017",
     "Bundle2":"Cosy Christmas Fashion",
     "code2":"GBWO2",
-    "expire2":"Expires: September 30th, 2017",
+    "expire2":"Expires: December 31th, 2017",
 
     "new1":"New",
     "text":"Alternative text - include a link to the PDF!",
@@ -128,6 +129,7 @@
     "discountPrice":"Discounted Price",
     "mixedDiscount":"Mixed Discount",
     "saveEvent":"Save Event",
+    "publishBundle":"Publishing Bundle",
 
     "chooseBundle":"Choose a Bundle",
     "bundleProd1":"Bundle Products",
@@ -154,10 +156,7 @@
     "price2":"Price",
     "cancel2":"Cancel",
     "updateCont":"Update the Event and Continue",
-
-    "publishBundle":"Publishing Bundle",
-    "alexa":"Amazon Alexa",
+    "cancel3":"Cancel",
     "done":"Done",
     "alexa1":"Amazon Alexa"
-
 }
