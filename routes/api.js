@@ -93,8 +93,8 @@ router.post("/subscribe", function(req, res) {
           to: req.body.email_address,
           subject: "Willkommen bei LIDL Smart Shopping!",
           generateTextFromHTML: true,
-          html: "<b>Hallo!</b> Dein Verification Key lautet " + settingkey2 + " Viel Erfolg. Bekomme 5% mit dem Code ASH737 "
-        };
+          html: 'Vielen Dank, Deine Anmeldung war erfolgreich. Du wirst in Kürze in unseren Verteiler aufgenommen und empfängst damit unsere Neuigkeiten. Um deine Einstellungen zu ändern, gib einfach deinen Code:' + settingkey2 + ' unter https://goo.gl/9Upcxo ein. Viel Spaß mit LIDL Smart Shopping!'
+      };
 
         smtpTransport.sendMail(mailOptions, function(error, response) {
           if (error) {
@@ -132,7 +132,7 @@ router.post("/subscribe", function(req, res) {
         client.sendMessage({
           to: user.phonenumber,
           from: '+4915735984837',
-          body: "Willkommen bei LIDL Smart Shopping!!! Dein Setting Key lautet... " + settingkey2
+          body: 'Vielen Dank, Deine Anmeldung war erfolgreich. Du wirst in Kürze in unseren Verteiler aufgenommen und empfängst damit unsere Neuigkeiten. Um deine Einstellungen zu ändern, gib einfach deinen Code:' + settingkey2 + ' unter https://goo.gl/9Upcxo ein. Viel Spaß mit LIDL Smart Shopping!'
         }, function(err, data) {
           if (err) {
             // console.log(err);
@@ -144,7 +144,7 @@ router.post("/subscribe", function(req, res) {
         });} else{
 
             var new_phonenumber = user.phonenumber.substring(1);
-            var nachricht = 'Vielen Dank, Deine Anmeldung war erfolgreich. Du wirst in Kürze in unseren Verteiler aufgenommen und empfängst damit unsere Neuigkeiten. Um deine Einstellungen zu ändern, gib einfach deinen Code:' + settingkey2 + ' unter https://goo.gl/CqL91L ein. Viel Spaß mit LIDL Smart Shopping!';
+            var nachricht = "Wilkommen bei Smart Shoppping! Dein Verifizierungscode lautet " + settingkey2 + ". Gib ihn einfach unter https://goo.gl/9Upcxo ein.";
             console.log("cut number:" + new_phonenumber);
             var request = require("request");
 
@@ -170,7 +170,6 @@ router.post("/subscribe", function(req, res) {
 
                 console.log(body);
             });
-
 
 
 
@@ -671,7 +670,7 @@ router.post("/createpdf", function(req, res) {
 
 
           var pdf = new pdfkit({
-              size: [567, 690],
+              size: [567, 600],
               info: {
                   Title: bundle.title,
                   Author: 'Lidl Smart Shopping'
@@ -693,37 +692,14 @@ router.post("/createpdf", function(req, res) {
           }
 
 
-          /* pdf.moveTo(0, 435)
-               .lineTo(700, 400)
-               .stroke();
-
-           pdf.image('client/src/assets/pdf/tree.jpg', 0, 120, {
-               width: 700
-           });
-           pdf.moveTo(0, 435)
-               .lineTo(700, 400)
-               .stroke();
-
-           pdf.rect(0, 119, 700, 700)
-               .fillOpacity(0.7)
-               .fill("white")
-     */
-          //pdf.fontSize(40).text('LIDL SMART SHOPPING', 130, 25);
-
-
-          // pdf.rect(50, 300, 200, 30)
-          //    .fillOpacity(0.8)
-          //    .fill("red")
-
-          pdf.fontSize(35).fillColor("black").text(bundle.title, 310, 120, {
-              width: 220
+          pdf.fontSize(35).fillColor("black").text(bundle.title, 0, 120, {
+              width: 567
+              , align: 'center'
           });
 
-          pdf.fontSize(18).fillColor("black").text(bundle.description, 310, 200, {});
+          pdf.fontSize(18).fillColor("black").text(bundle.description, 0, 160, {width: 567, align: 'center'});
 
-          pdf.fontSize(18).fillColor("black").text('Kaufen Sie diese drei Produkte gemeinsam und sparen Sie ' + (bundle.discount *100)+ ' %', 350, 300, {
-              width: 220
-          });
+
           pdf.image(article1_ean, 0, 420, {
               width: 190
           });
@@ -737,21 +713,35 @@ router.post("/createpdf", function(req, res) {
           });
 
 
-            pdf.rect(0, 560, 575, 40)
-        .fillOpacity(1)
-        .fill("white")
 
-    pdf.fontSize(15).fillColor("black").text(bundle.articles[0].name, 15, 570, {
-        width: 150
+    pdf.fontSize(24).fillColor("white").text( (parseFloat(bundle.articles[0].preis) +parseFloat(bundle.articles[1].preis) + parseFloat(bundle.articles[2].preis)).toFixed(2)+"€", 420, 310, {
+        width: 100
     });
 
-    pdf.fontSize(15).fillColor("black").text(bundle.articles[1].name, 220, 570, {
-        width: 150
+    pdf.fontSize(12).fillColor("white").text(bundle.articles[0].name, 20, 370, {
+        width: 100
+    });
+    pdf.fontSize(18).fillColor("red").text(((bundle.articles[0].discount)*100).toFixed(0)+"%", 140, 380, {
+        width: 50,
+        height: 50
     });
 
-    pdf.fontSize(15).fillColor("black").text(bundle.articles[2].name, 430, 570, {
-        width: 150
+    pdf.fontSize(12).fillColor("white").text(bundle.articles[1].name, 200, 370, {
+        width: 100
     });
+    pdf.fontSize(18).fillColor("red").text(((bundle.articles[1].discount)*100).toFixed(0)+"%", 320, 380, {
+        width: 50,
+        height: 50
+    });
+
+    pdf.fontSize(12).fillColor("white").text(bundle.articles[2].name, 385, 370, {
+        width: 100
+    });
+    pdf.fontSize(18).fillColor("red").text(((bundle.articles[2].discount)*100).toFixed(0)+"%", 500, 380, {
+        width: 50,
+        height: 50
+    });
+
 
           // Stream contents to a file
           pdf.pipe(
@@ -961,7 +951,7 @@ router.post("/sendEmailUpdate_subscribe", function(req, res) {
         to: req.body.email_address,
         subject: "Willkommen bei LIDL Smart Shopping!",
         generateTextFromHTML: true,
-        html: "<b>Hallo!</b> Sie haben erfolgreich ihre Einstellungen geändert und erhalten von nun kann Email-Benachrichtigungen von Lidl-Smart-Shopping "
+        html: "<b>Hallo!</b> Sie haben erfolgreich ihre Einstellungen geändert und erhalten von nun kann Email-Benachrichtigungen von Lidl-Smart-Shopping."
     };
 
     smtpTransport.sendMail(mailOptions, function(error, response) {
